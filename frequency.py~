@@ -3,8 +3,6 @@
 
 import string
 
-
-
 def get_word_list(file_name):
     """ Reads the specified project Gutenberg book.  Header comments,
         punctuation, and whitespace are stripped away.  The function
@@ -41,7 +39,7 @@ def get_top_n_words(word_list, n):
         returns: a list of n most frequently occurring words ordered from most
                  frequently to least frequentlyoccurring
     """
-    word_counter={} #empty dictionary to add words in
+    word_counter={}
     for word in word_list:
         if word in word_counter:
             word_counter[word] = word_counter[word] + 1
@@ -62,4 +60,4 @@ def get_top_n_words(word_list, n):
 bookwords= get_word_list('pg32325.txt')
 topnwords = get_top_n_words(bookwords,100)
 
-print topnwords
+print topnwords 
