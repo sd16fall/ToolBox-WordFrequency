@@ -17,14 +17,14 @@ def get_word_list(file_name):
     return list_of_words
 
 
-def get_top_n_words(words_list, n):
-    word_counts = {}
+def get_top_n_words(words_list, n): #n represents the number of words to return in order of most frequent
+    word_counts = {} #dictionary to store words and their count
     for word in words_list:
         if word in word_counts:
             word_counts[word] += 1
         else:
             word_counts[word] = 1
-    ordered_by_frequency = sorted(word_counts, key=word_counts.get, reverse=True)
+    ordered_by_frequency = sorted(word_counts, key=word_counts.get, reverse=True) 
     for top_word in ordered_by_frequency[:n]:
         print top_word, word_counts[top_word]
 
