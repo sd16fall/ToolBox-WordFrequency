@@ -15,15 +15,20 @@ def get_word_list(file_name):
 	"""
 	# Opens file for reading
 	f = open(file_name,'r')
+
 	# Saves the lines of the file into a list in lowercase form
 	lines = f.readlines()
+
 	# Closes the file
-	file.close
+	f.close()
+
 	# Initalizes a variable to traverse the list
 	curr_line = 0
+
 	# Locates the sentence stated below by iterating through the lines
 	while lines[curr_line].find('START OF THIS PROJECT GUTENBERG EBOOK') == -1:
 		curr_line += 1
+		
 	# Based on last point, splices away the content before the line & saves it
 	lines = lines[curr_line+1:]
 
@@ -67,6 +72,5 @@ def get_top_n_words(word_list, n):
 	return ordered_by_frequency[:n]
 
 if __name__ == '__main__':
-	# passes filename to get_word_list function
-	word_list = get_word_list("dontmarry.txt")
-	print get_top_n_words(word_list, 100)
+	# executes and prints the top n words from get word list
+	print get_top_n_words(get_word_list("dontmarry.txt"), 100)
